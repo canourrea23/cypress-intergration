@@ -6,5 +6,5 @@ it('should fail then pass', { retries: 3 }, () => {
 it('should fail then pass', { retries: 3 }, () => {
     let count = 0
     count++
-    expect(count).eq(4)
+    expect(count).eq(3)
 })
