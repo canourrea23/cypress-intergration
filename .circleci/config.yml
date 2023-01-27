@@ -13,5 +13,6 @@ workflows:
           parallel: true # split all specs across machines
           parallelism: 4 # use 4 CircleCI machines to finish quickly
           group: 'all tests' # name this group "all tests" on the dashboard
-          run: $npx cypress run --record --key 7f809f02-a8f5-466e-b5b6-bf478991511b
+          ci-build-id: 'testing-commit-${CIRCLE_SHA1}' 
+          run: npx cypress run --record --key 7f809f02-a8f5-466e-b5b6-bf478991511b 
 
