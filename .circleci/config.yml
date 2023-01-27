@@ -1,15 +1,17 @@
 version: 2.1
 orbs:
-  cypress: cypress-io/cypress@1
+  cypress: cypress-io/cypress@2
 workflows:
   build:
     jobs:
-      - cypress/install
+      - cypress/install:
+          build: 'npm run build' # run a custom app build step
       - cypress/run:
           requires:
             - cypress/install
-          record: true
-          parallel: true
-          parallelism: 2
-          ci-build-id: 'testing-commit-${CIRCLE_SHA1}'
+          record: true # record results with Cypress Cloud
+          parallel: true # split all specs across machines
+          parallelism: 4 # use 4 CircleCI machines to finish quickly
+          group: 'all tests' # name this group "all tests" on the dashboard
+          start: '- run: $(npm bin)/cypress run --record --key 7f809f02-a8f5-466e-b5b6-bf478991511b' # start server before running tests
 
