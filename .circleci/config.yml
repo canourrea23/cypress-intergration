@@ -13,5 +13,5 @@ workflows:
           parallel: true # split all specs across machines
           parallelism: 4 # use 4 CircleCI machines to finish quickly
           group: 'all tests' # name this group "all tests" on the dashboard
-          start: '- run: $(npm bin)/cypress run --record --key 7f809f02-a8f5-466e-b5b6-bf478991511b' # start server before running tests
+          start: 'npx cypress run --record --key 7f809f02-a8f5-466e-b5b6-bf478991511b' # start server before running tests
 
